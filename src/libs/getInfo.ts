@@ -1,16 +1,19 @@
 'use strict';
 
 const _ = require('lodash');
+const config = require('config');
+const commonLables = config.get('commonLables');
 
 
 export default class GetInfo {
-    defaultLables = [
-        "In Progress",
-        "Todo",
-        "Done"
-    ]
+    defaultLables = commonLables
     constructor() {
         
+    }
+
+    searchDefaultLables(label:string) {
+        let index = _.indexOf(this.defaultLables, label)
+        return (index == -1 ) ? false:true
     }
 
     removeDefaultLables(lables:any) {

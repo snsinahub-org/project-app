@@ -1,8 +1,5 @@
 'use strict';
 
-// const _ = require('lodash');
-
-
 export default class GetItems {
 
   constructor() {
@@ -85,9 +82,8 @@ export default class GetItems {
   }
 
   async removeALabelFromIssue (context:any, owner: string, repo:string, name:string, issue_number:any)  {
-    console.log("REMOVE ALL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ", owner, repo, name, issue_number)
     return await context.octokit.rest.issues.removeLabel({
-      owner: repo,
+      owner: owner,
       repo: repo,
       issue_number: issue_number,
       name: '"' + name.trim() + '"'
@@ -95,7 +91,6 @@ export default class GetItems {
   }
 
   async removeAllLabelsFromIssue (context:any, owner: any, repo:any, issue_number:any)  {
-    // console.log("REMOVE ALL ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ", context, owner, repo, labels, issue_number)
     return await context.octokit.rest.issues.removeAllLabels({
       owner,
       repo,
@@ -103,12 +98,10 @@ export default class GetItems {
     })
   }
 
-  // @ts-ignore
   async removeDefaultLabelsFromIssue (context:any, owner: any, repo:any, labels:any, issue_number:any)  {
     
 
     for(let label in labels) {
-      // console.log("REMOVE DEFAULT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ", owner, repo, labels[label], issue_number)
       await this.removeALabelFromIssue(context, owner, repo, `"${labels[label]}"`, issue_number)
     }
     
