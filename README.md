@@ -1,11 +1,11 @@
 # project-app
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that App that listens to project events 
-This app listens to project events and will change issue lable based on project item status.
+This app listens to project events and will change issue label based on project item status.
 
 ## Prerequisites
 - A server/computer which can be accessed via a URL. 
-  - For development/local test you can use your personal computer and use [smee.io](https://smee.io/) to let github app reaches to your computer
+  - For development/local test you can use your personal computer and use [smee.io](https://smee.io/) to let github app reaches to your computer
 - To run the app as a nodejs application: node v16+
 - To run this as a docker container: `docker` or `docker desktop` must be installed
 
@@ -16,7 +16,7 @@ To run this app successfully, you need to complete below steps:
 - `Customize your configurations` and `deploy app`
 - - Build app
 - Run app
-  - The app must be reached via `webhook URL` defined in the `GitHub App settings`
+  - The app must be reached via `webhook URL` defined in the `GitHub App settings`
 
 
 
@@ -24,19 +24,19 @@ To run this app successfully, you need to complete below steps:
 - Go to Organization settings -> Developer settings -> GitHub Apps
 - Click on `New GitHub App` button
 - Register APP with
-  - Github App name
-  - Homepage URL: GitHub Repo URL
-  - Webhool URL: The APP can be reached via this URL, e.g `http://yourdomain/app`
-  - Webhook secret: generate a random secret. For instance `openssl rand -base64 32`
-- Permissions: set peemissions as below
-  - Repository 
-    - Issues: Read and Write
-    - Projects: Read and Write
-  - Organization
-    - Projects: Read and Write
+  - Github App name
+  - Homepage URL: GitHub Repo URL
+  - Webhook URL: The APP can be reached via this URL, e.g `http://yourdomain/app`
+  - Webhook secret: generate a random secret. For instance `openssl rand -base64 32`
+- Permissions: set permissions as below
+  - Repository 
+    - Issues: Read and Write
+    - Projects: Read and Write
+  - Organization
+    - Projects: Read and Write
 - Subscribe to events
-  - Projects v2 item
-  - Project
+  - Projects v2 item
+  - Project
 - Generate a private Key
 
 ### Install APP in your organization
@@ -61,8 +61,8 @@ PRIVATE_KEY=<one line private key>
 NODE_ENV=production
 ```
 
-#### Custom projet item status/issue labels
-This file is located at `config/default.json`. You can add/remove/modify lables in the config file to match with your `Project items statuses`
+#### Custom project item status/issue labels
+This file is located at `config/default.json`. You can add/remove/modify labels in the config file to match with your `Project items statuses`
 
 ## Build and run
 
